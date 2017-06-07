@@ -1,0 +1,27 @@
+{
+  "name": "alphabet-teacher",
+  "version": "1.0.0",
+  "description": "An Amazon Alexa Skill that reads the alphabet to kids",
+  "main": "index.js",
+  "scripts": {
+    "test": "cd test && mocha test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/acucciniello/alphabet-teacher.git"
+  },
+  "author": "Antonio Cucciniello",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/acucciniello/alphabet-teacher/issues"
+  },
+  "homepage": "https://github.com/acucciniello/alphabet-teacher#readme",
+  "dependencies": {
+    "alexa-app": "^4.0.1"
+  },
+  "devDependencies": {
+    "bespoken-tools": "^0.9.45",
+    "chai": "^4.0.2",
+    "mocha": "^3.4.2"
+  }
+}

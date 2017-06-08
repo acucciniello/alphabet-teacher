@@ -58,3 +58,25 @@ it('Launches the Help intent and doesnt end session', function (done) {
     done()
   })
 })
+
+it('Stops and Exits Skill upon calling StopIntent', function (done) {
+  alexa.intended('AMAZON.StopIntent', null, function (error, payload) {
+    if (error) {
+      console.log(error)
+      done()
+    }
+    chai.assert.equal(payload.response.outputSpeech.ssml, '<speak>Stopping your Request and Exiting Skill</speak>')
+    done()
+  })
+})
+
+it('Cancels and Exits Skill upon calling CancelIntent', function (done) {
+  alexa.intended('AMAZON.CancelIntent', null, function (error, payload) {
+    if (error) {
+      console.log(error)
+      done()
+    }
+    chai.assert.equal(payload.response.outputSpeech.ssml, '<speak>Canceling your Request and Exiting Skill</speak>')
+    done()
+  })
+})

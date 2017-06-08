@@ -24,4 +24,22 @@ app.intent('AMAZON.HelpIntent',{
   return
 })
 
+app.intent('AMAZON.StopIntent',{
+  'slots': {},
+  'utterances': []
+}, function (request, response) {
+  var stopOutput = 'Stopping your Request and Exiting Skill'
+  response.say(stopOutput).send()
+  return
+})
+
+app.intent('AMAZON.CancelIntent',{
+  'slots': {},
+  'utterances': []
+}, function (request, response) {
+  var cancelOutput = 'Canceling your Request and Exiting Skill'
+  response.say(cancelOutput).send()
+  return
+})
+
 module.exports = app

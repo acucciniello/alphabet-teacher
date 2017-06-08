@@ -38,20 +38,23 @@ it('Launches the skill', function (done) {
   alexa.launched(function (error, payload) {
     if(error) {
       console.log(error)
+      done()
     }
-    chai.assert.equal(payload.response.outputSpeech.ssml, '<speak>Hello World</speak>')
+    chai.assert.equal(payload.response.outputSpeech.ssml, '<speak>Welcome to Alphabet Teacher. You can have Alexa say the English alphabet back to you.  To start using the skill, say Alexa, ask alphabet teacher to say the alphabet.</speak>')
+    chai.assert.equal(payload.response.shouldEndSession, false)
     done()
   })
 })
 
 
-it('Launches the Help intent', function (done) {
+it('Launches the Help intent and doesnt end session', function (done) {
   alexa.intended('AMAZON.HelpIntent', null,  function (error, payload) {
     if (error) {
       console.log(error)
       done()
     }
-    chai.assert.equal(payload.response.outputSpeech.ssml, '<speak>Welcome to Alphabet Teacher. The purpose of this skill is to practice the alphabet along with alexa. To Have Alexa say the alphabet please say Alexa, ask alphabet to say the Alphabet. What would you like to do?</speak>')
+    chai.assert.equal(payload.response.outputSpeech.ssml, '<speak>Welcome to Alphabet Teacher. The purpose of this skill is to practice the alphabet along with alexa. To Have Alexa say the alphabet please say Alexa, ask alphabet to say the alphabet. What would you like to do?</speak>')
+    chai.assert.equal(payload.response.shouldEndSession, false)
     done()
   })
 })

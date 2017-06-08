@@ -1,0 +1,3 @@
+AlphabetIntent to say the alphabet
+AlphabetIntent to tell me the alphabet
+AlphabetIntent to recite the alphabet

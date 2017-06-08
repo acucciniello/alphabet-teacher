@@ -53,7 +53,7 @@ it('Launches the Help intent and doesnt end session', function (done) {
       console.log(error)
       done()
     }
-    chai.assert.equal(payload.response.outputSpeech.ssml, '<speak>Welcome to Alphabet Teacher. The purpose of this skill is to practice the alphabet along with alexa. To Have Alexa say the alphabet please say Alexa, ask alphabet to say the alphabet. What would you like to do?</speak>')
+    chai.assert.equal(payload.response.outputSpeech.ssml, '<speak>Welcome to Alphabet Teacher. The purpose of this skill is to practice the alphabet along with alexa. To Have Alexa say the alphabet please say Alexa, ask alphabet teacher to say the alphabet. What would you like to do?</speak>')
     chai.assert.equal(payload.response.shouldEndSession, false)
     done()
   })
@@ -79,4 +79,26 @@ it('Cancels and Exits Skill upon calling CancelIntent', function (done) {
     chai.assert.equal(payload.response.outputSpeech.ssml, '<speak>Canceling your Request and Exiting Skill</speak>')
     done()
   })
+})
+
+it('Says the alphabet upon calling AlphabetIntent', function (done) {
+  alexa.spoken('to say the alphabet', function (error, response, request) {
+    if (error){
+      console.log(error)
+    }
+    chai.assert.equal(request.request.intent.name, 'AlphabetIntent')
+  })
+  alexa.spoken('to tell me the alphabet', function (error, response, request) {
+    if (error){
+      console.log(error)
+    }
+    chai.assert.equal(request.request.intent.name, 'AlphabetIntent')
+  })
+  alexa.spoken('to recite the alphabet', function (error, response, request) {
+    if (error){
+      console.log(error)
+    }
+    chai.assert.equal(request.request.intent.name, 'AlphabetIntent')
+  })
+  done()
 })

@@ -43,3 +43,15 @@ it('Launches the skill', function (done) {
     done()
   })
 })
+
+
+it('Launches the Help intent', function (done) {
+  alexa.intended('AMAZON.HelpIntent', null,  function (error, payload) {
+    if (error) {
+      console.log(error)
+      done()
+    }
+    chai.assert.equal(payload.response.outputSpeech.ssml, '<speak>Welcome to Alphabet Teacher. The purpose of this skill is to practice the alphabet along with alexa. To Have Alexa say the alphabet please say Alexa, ask alphabet to say the Alphabet. What would you like to do?</speak>')
+    done()
+  })
+})

@@ -46,7 +46,7 @@ app.intent('AlphabetIntent', {
   'slots': {},
   'utterances': ['to say the alphabet', 'to tell me the alphabet', 'to recite the alphabet']
 }, function (request, response) {
-  var alphabet = 'A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z'
+  var alphabet = 'A <break time="2s"/>, B <break time="2s"/>, C <break time="2s"/>, D <break time="2s"/>, E <break time="2s"/>, F <break time="2s"/>, G <break time="2s"/>, H <break time="2s"/>, I <break time="2s"/>, J <break time="2s"/>, K <break time="2s"/>, L <break time="2s"/>, M <break time="2s"/>, N <break time="2s"/>, O <break time="2s"/>, P <break time="2s"/>, Q <break time="2s"/>, R <break time="2s"/>, S <break time="2s"/>, T <break time="2s"/>, U <break time="2s"/>, V <break time="2s"/>, W <break time="2s"/>, X <break time="2s"/>, Y <break time="2s"/>, Z'
   response.say(alphabet).send()
 })
 

@@ -81,7 +81,7 @@ it('Cancels and Exits Skill upon calling CancelIntent', function (done) {
   })
 })
 
-it('Says the alphabet upon calling AlphabetIntent', function (done) {
+it('Launches AlphabetIntent with Utterance', function (done) {
   alexa.spoken('to say the alphabet', function (error, response, request) {
     if (error){
       console.log(error)
@@ -101,4 +101,15 @@ it('Says the alphabet upon calling AlphabetIntent', function (done) {
     chai.assert.equal(request.request.intent.name, 'AlphabetIntent')
   })
   done()
+})
+
+it('Says the Alphabet with AlphabetIntent', function (done) {
+  alexa.intended('AlphabetIntent', null, function (error, payload) {
+    if (error) {
+      console.log(error)
+      done()
+    }
+    chai.assert.equal(payload.response.outputSpeech.ssml, '<speak>A <break time=\"2s\"/>, B <break time=\"2s\"/>, C <break time=\"2s\"/>, D <break time=\"2s\"/>, E <break time=\"2s\"/>, F <break time=\"2s\"/>, G <break time=\"2s\"/>, H <break time=\"2s\"/>, I <break time=\"2s\"/>, J <break time=\"2s\"/>, K <break time=\"2s\"/>, L <break time=\"2s\"/>, M <break time=\"2s\"/>, N <break time=\"2s\"/>, O <break time=\"2s\"/>, P <break time=\"2s\"/>, Q <break time=\"2s\"/>, R <break time=\"2s\"/>, S <break time=\"2s\"/>, T <break time=\"2s\"/>, U <break time=\"2s\"/>, V <break time=\"2s\"/>, W <break time=\"2s\"/>, X <break time=\"2s\"/>, Y <break time=\"2s\"/>, Z</speak>')
+    done()
+  })
 })
